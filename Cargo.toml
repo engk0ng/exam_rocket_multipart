@@ -1,0 +1,17 @@
+[package]
+name = "form_upload_bot"
+version = "0.1.0"
+authors = ["me-abumuhammad <com.koloboot@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = "0.4.7"
+sailfish = "0.3.0"
+rocket-raw-response = "0.4.11"
+anyhow = "1.0.38"
+rocket-multipart-form-data = "0.9.6"
+image-base64 = "0.1"
+reqwest = { version = "0.11", features = ["blocking", "json", "multipart"] }
+multipart = { git = "https://github.com/abonander/multipart.git"}
