@@ -22,6 +22,7 @@ use reqwest::blocking::multipart;
 use std::io::prelude::*;
 use std::fs::File;
 use std::path::Path;
+use std::env;
 
 #[get("/")]
 pub fn index() -> content::Html<String> {
@@ -87,8 +88,9 @@ pub fn upload(content_type: &ContentType, data: Data) -> Result<RawResponse, &'s
             let pth = Path::new(&file_name);
             let mut headers = HeaderMap::new();
             headers.insert(CONTENT_TYPE, HeaderValue::from_static("multipart/form-data"));
-            let token = "";
-            let command = format!("/sendPhoto?chat_id={}", "");
+            let token = env::var("TG_BOT_TOKEN").expect("Telegram bot token not set");
+            let id_chat = env::var("ID_CHAT").expect("Telegram bot id_chat not set");
+            let command = format!("/sendPhoto?chat_id={}", id_chat);
             let url_post = format!("https://api.telegram.org/bot{}{}", token, command);
             let form = multipart::Form::new()
             .text("caption", cpt)
