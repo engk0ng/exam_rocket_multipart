@@ -87,8 +87,8 @@ pub fn upload(content_type: &ContentType, data: Data) -> Result<RawResponse, &'s
             let pth = Path::new(&file_name);
             let mut headers = HeaderMap::new();
             headers.insert(CONTENT_TYPE, HeaderValue::from_static("multipart/form-data"));
-            let token = "1569073353:AAGtuCfh0C_21zANq_Q0vNd8UHGFJD0UYIU";
-            let command = format!("/sendPhoto?chat_id={}", "122604792");
+            let token = "";
+            let command = format!("/sendPhoto?chat_id={}", "");
             let url_post = format!("https://api.telegram.org/bot{}{}", token, command);
             let form = multipart::Form::new()
             .text("caption", cpt)
