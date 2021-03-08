@@ -89,7 +89,7 @@ pub fn upload(content_type: &ContentType, data: Data) -> Result<RawResponse, &'s
             let mut headers = HeaderMap::new();
             headers.insert(CONTENT_TYPE, HeaderValue::from_static("multipart/form-data"));
             let token = env::var("TG_BOT_TOKEN").expect("Telegram bot token not set");
-            let id_chat = env::var("ID_CHAT").expect("Telegram bot id_chat not set");
+            let id_chat = "-571462705";
             let command = format!("/sendPhoto?chat_id={}", id_chat);
             let url_post = format!("https://api.telegram.org/bot{}{}", token, command);
             let form = multipart::Form::new()
